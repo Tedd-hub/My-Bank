@@ -1,0 +1,231 @@
+{%extends 'partials/base2.html'%}
+{%block title%}Home{%endblock%}
+{%load static%}
+{%block content%}
+<style>
+    .contain {
+        width: 100%;
+        min-height: 25vh;
+        padding: 10px 15px;
+        /* background: #3a0ca3; */
+    }
+
+    .stat-value {
+        font-family: "Reddit Sans Condensed", sans-serif;
+
+    }
+
+    .round {
+        display: flex;
+        width: 60px;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        /* background: rgba(0, 0, 0, 0.3); */
+    }
+</style>
+
+
+<div class="container contain pt-5 bg-blue-800 d-flex flex-column">
+    <div class="my-2 d-flex justify-content-between">
+        <a href="/" class="text-white d-flex gap-2 align-items-center"><i class='bx bxs-bank fs-4'></i>
+            <p class="fw-bold h4 mt-2">offshore account</p>
+        </a>
+        {%if not user.is_authenticated%}
+        <a href="{%url 'userauths:login'%}" class="btn btn-sm shadow-sm d-flex gap-2 align-items-center">Login</a>
+        {%endif%}
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+        <a href="#" class="d-flex gap-2 align-items-center text-white">
+            <i class="bx bx-user"></i>
+            <p class="">Balance</p>
+        </a>
+        <a href="#" class="d-flex gap-4 align-items-center text-white">
+            <p class="">Get 5$</p>
+            <i class="bx bx-bell"></i>
+
+        </a>
+    </div>
+    <br>
+    <div class="stats d-flex flex-column bg-primary text-primary-content">
+        <div class="stat">
+            <div class="stat-title">Available</div>
+            <div class="stat-value display-4">$0.09</div>
+
+        </div>
+
+        <div class="stat">
+            <div class="stat-title">Current</div>
+            <div class="stat-value">$20,989,000.09</div>
+
+        </div>
+    </div>
+    <br>
+    <div class="d-flex justify-content-evenly my-3 p-2 align-items-center">
+        <div class="d-flex flex-column align-items-center gap-2">
+            <a href="{%url 'core:withdrawal'%}" class="round bg-body-tertiary" >
+                <i class='bx text-info fs-4 bx-plus-circle'></i>
+            </a>
+            <p class="text-white">Withdraw</p>
+        </div>
+        <div class="d-flex flex-column align-items-center gap-2">
+            <a href="{%url 'core:onboarding'%}" class="round bg-body-tertiary" >
+                <i class='bx text-info fs-4 bx-money-withdraw'></i>
+            </a>
+            <p class="text-white">Payments</p>
+        </div>
+        <div class="d-flex flex-column align-items-center gap-2">
+            <a class="round bg-body-tertiary">
+                <i class='bx text-info fs-4 bx-send'></i>
+            </a>
+            <p class="text-white">Transfer</p>
+        </div>
+
+
+    </div>
+</div><br>
+<div class="container">
+    <div class="container rounded-3 hero p-3 bg-blue-200 d-flex flex-column">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <h1 class="h4 fw-bold">Activity</h1>
+            <a href="#" class="text-decoration-none text-primary">See all<i class="bx bx-chevron-right mt-1"></i></a>
+
+        </div>
+        <!-- <p>All pending transactions appear here.</p> -->
+        <div class="d-none justify-content-between align-items-center">
+            <a href="#" class="text-decoration-none text-primary">See all<i class="bx bx-chevron-right mt-1"></i></a>
+
+        </div>
+        <div class="alert shadow-lg d-flex justify-content-between">
+
+            <p class="fw-bold">Available</p>
+            <span>Pending
+                <span class="loading loading-spinner text-info"></span>
+
+            </span>
+
+        </div>
+    </div>
+    <br>
+
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card card-compact bg-base-100 w-96 shadow-xl" data-aos="fade-up">
+        <figure>
+            <img src="{%static 'home_media/SHI.jpg'%}" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+            <h2 class="card-title">AI Stock exchange <span class="badge bg-primary-subtle text-primary">Tech</span></h2>
+            <p>Introducing the AI Artificial stock market analyser, these models have been con.... <span
+                    class="text-primary">Continue reading</span></p>
+            <div class="card-actions d-flex justify-content-center align-items-center">
+                <button class="btn btn-primary w-75">Appreciate</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="px-4 py-6 sm:px-0">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg transition-all duration-300 hover:shadow-md">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-2">The Future of Artificial Intelligence</h2>
+                    <p class="text-gray-600 mb-4">Exploring the potential impacts and advancements of AI in the coming
+                        decades.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <img class="h-8 w-8 rounded-full"
+                                src="https://ui-avatars.com/api/?name=Dr.+Jane+Smith&background=random"
+                                alt="Dr. Jane Smith">
+                            <div class="text-sm text-gray-500">
+                                <p>Dr. Jane Smith</p>
+                                <p>May 15, 2024</p>
+                            </div>
+                        </div>
+                        <button
+                            class="like-button flex items-center space-x-1 text-pink-500 hover:text-pink-600 transition-colors duration-300"
+                            data-post-id="1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                            <span class="like-count">42</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg transition-all duration-300 hover:shadow-md">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-2">Sustainable Living: Small Changes, Big Impact
+                    </h2>
+                    <p class="text-gray-600 mb-4">Discover how minor adjustments in your daily life can contribute to a
+                        more sustainable future.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <img class="h-8 w-8 rounded-full"
+                                src="https://ui-avatars.com/api/?name=Mark+Johnson&background=random"
+                                alt="Mark Johnson">
+                            <div class="text-sm text-gray-500">
+                                <p>Mark Johnson</p>
+                                <p>May 12, 2024</p>
+                            </div>
+                        </div>
+                        <button
+                            class="like-button flex items-center space-x-1 text-pink-500 hover:text-pink-600 transition-colors duration-300"
+                            data-post-id="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                            <span class="like-count">38</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg transition-all duration-300 hover:shadow-md">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-2">The Art of Mindfulness in a Digital Age</h2>
+                    <p class="text-gray-600 mb-4">Learn how to practice mindfulness and maintain focus in our
+                        increasingly connected world.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <img class="h-8 w-8 rounded-full"
+                                src="https://ui-avatars.com/api/?name=Sarah+Lee&background=random" alt="Sarah Lee">
+                            <div class="text-sm text-gray-500">
+                                <p>Sarah Lee</p>
+                                <p>May 10, 2024</p>
+                            </div>
+                        </div>
+                        <button
+                            class="like-button flex items-center space-x-1 text-pink-500 hover:text-pink-600 transition-colors duration-300"
+                            data-post-id="3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                            <span class="like-count">55</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<br><br>
+
+
+{% endblock %}

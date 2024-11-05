@@ -1,0 +1,84 @@
+{%extends 'partials/base2.html'%}
+{%block title%}Register{%endblock%}
+{%load crispy_forms_tags%}
+{%load static%}
+
+{%block content%}
+
+
+<style>
+
+</style>
+
+<div class="container d-flex flex-column mt-5" style="height: 100vh; max-width: 800px; margin-top: 20%;">
+    <h2 class="fw-bold h3 text-center">Register</h2>
+    <p class="text-center h6">Hello bud!, Welcome to Chase Bank. <br>Enter your details let's get started</p>
+    <br>
+    <!--     <button class="toast-button" id="toastButton">Show Toast</button>
+ -->
+    <div class="my-3 d-flex justify-content-evenly">
+        <button class="btn" id="toastButton">
+            <i class='bx bxl-google'></i>
+            Google
+        </button>
+        <button class="btn" id="appleButton">
+            <i class='bx bxl-apple'></i>
+            iCloud
+        </button>
+    </div>
+
+
+    <div class="container mt-3 d-flex flex-column">
+        <form method="post" action="{% url 'userauths:register' %}" class="w-100">
+            {% csrf_token %}
+            <!-- <h5 class="fw-bold">Login</h5> -->
+            <div class="d-flex flex-column justify-content-start">
+                {{form|crispy}}
+
+
+            </div>
+            <div class="d-none my-2">
+                <a href="#" class="h6 text-primary">Forgot password ?</a>
+            </div>
+            <br>
+
+
+            <button type="submit" class="btn w-100 bg-blue-800 text-white">Register</button>
+            <div class="d-flex my-2 mt-3 align-items-center justify-content-center">
+                <p class="h6">Already have an account, <a href="{%url 'userauths:login'%}"
+                        class="h6 text-primary">Login</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    document.getElementById('toastButton').addEventListener('click', function () {
+        Toastify({
+            text: "Ooops! Try signing up manually",
+            duration: 3000,
+            gravity: "top", // 'top' or 'bottom'
+            position: 'center', // 'left', 'center' or 'right'
+            backgroundColor: "#333",
+            className: "info",
+            stopOnFocus: true // Prevents dismissing of toast on hover
+        }).showToast();
+    });
+</script>
+<script>
+    document.getElementById('appleButton').addEventListener('click', function () {
+        Toastify({
+            text: "Sorry Apple is unavailable",
+            duration: 3000,
+            gravity: "top", // 'top' or 'bottom'
+            position: 'center', // 'left', 'center' or 'right'
+            backgroundColor: "#333",
+            className: "info",
+            stopOnFocus: true // Prevents dismissing of toast on hover
+        }).showToast();
+    });
+</script>
+
+{% endblock %}
